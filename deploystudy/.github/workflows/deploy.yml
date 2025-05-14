@@ -72,11 +72,11 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2
+          aws-region: ap-southeast-2
 
       # S3에 업로드
       - name: Upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./$ZIP_FILE_NAME s3://$S3_BUCKET_NAME/
+        run: aws s3 cp --region ap-southeast-2 ./$ZIP_FILE_NAME s3://$S3_BUCKET_NAME/
 
       # AWS CodeDeploy 배포 실행
       - name: Deploy to AWS CodeDeploy
