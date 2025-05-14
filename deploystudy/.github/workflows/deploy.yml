@@ -14,7 +14,7 @@ env:
   S3_BUCKET_NAME: deploystudy-likelion-github-action
   ZIP_FILE_NAME: deploy-package.zip
   APPLICATION_NAME: deploystudy # AWS CodeDeploy 애플리케이션 이름
-  DEPLOYMENT_GROUP_NAME: deploystudydeploygroup # AWS CodeDeploy 배포 그룹 이름
+  DEPLOYMENT_GROUP_NAME: deploystudygroup # AWS CodeDeploy 배포 그룹 이름
 
 jobs:
   build:
