@@ -2,23 +2,22 @@ name: Spring Boot & Gradle CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 permissions:
   contents: read
 
 # 환경 변수 설정
 env:
-  S3_BUCKET_NAME: deploystudy-github-action
+  S3_BUCKET_NAME: deploystudy-likelion-github-action
   ZIP_FILE_NAME: deploy-package.zip
-  APPLICATION_NAME: deploystudy  # AWS CodeDeploy 애플리케이션 이름
-  DEPLOYMENT_GROUP_NAME: deploystudydeploygroup  # AWS CodeDeploy 배포 그룹 이름
+  APPLICATION_NAME: deploystudy # AWS CodeDeploy 애플리케이션 이름
+  DEPLOYMENT_GROUP_NAME: deploystudydeploygroup # AWS CodeDeploy 배포 그룹 이름
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -30,8 +29,8 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
-          distribution: 'temurin'
+          java-version: "17"
+          distribution: "temurin"
       # 시크릿에서 application.yml 파일 생성
       - name: Create application.yml
         run: |
