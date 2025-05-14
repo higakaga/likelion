@@ -3,8 +3,12 @@ name: Spring Boot & Gradle CI/CD
 on:
   push:
     branches: ["main"]
+    paths:
+      - "deploystudy/**"
   pull_request:
     branches: ["main"]
+    paths:
+      - "deploystudy/**"
 
 permissions:
   contents: read
