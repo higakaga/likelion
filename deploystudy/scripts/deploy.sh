@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 REPOSITORY=/home/ubuntu/deploystudy # [프로젝트 이름 deploystudy]
 
-# java 명령어로 돌아가는 프로세스 아이디
+# java 명령어로 돌아가는 프로세스 아이디 
 CURRENT_PID=$(pgrep -fla action | grep java | awk '{print $1}')
 
 if [ -n "$CURRENT_PID" ]; then # 프로세스가 있으면
