@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /
+  - source: deploy/
     destination: /home/ubuntu/deploystudy
 permissions:
   - object: /home/ubuntu/deploystudy
