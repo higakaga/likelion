@@ -4,6 +4,7 @@ import com.example.homepage.post.entity.Post;
 import com.example.homepage.tag.entity.Tag;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,10 +16,6 @@ public class PostTag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    // 포스트 id
-    private Integer postId;
-    // 태그 id
-    private Integer tagId;
 
     @ManyToOne
     @JoinColumn(name = "post_id")
@@ -28,6 +25,7 @@ public class PostTag {
     @JoinColumn(name = "tag_id")
     private Tag tag;
 
+    @Builder
     public PostTag(Post post, Tag tag) {
         this.post = post;
         this.tag = tag;

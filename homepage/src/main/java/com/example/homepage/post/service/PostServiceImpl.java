@@ -1,5 +1,6 @@
 package com.example.homepage.post.service;
 
+import com.example.homepage.post.converter.PostRequestDtoToPostConverter;
 import com.example.homepage.post.dto.PostRequestDTO;
 import com.example.homepage.post.dto.PostResponseDTO;
 import com.example.homepage.post.dto.PostResponseListDTO;
@@ -25,6 +26,7 @@ public class PostServiceImpl implements PostService {
     private final PostRepository postRepository;
     private final PostTagService postTagService;
     private final TagService tagService;
+    private final PostRequestDtoToPostConverter postRequestDtoToPostConverter;
 
     @Override
     public PostResponseListDTO getHome(){
@@ -50,12 +52,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void createPost(PostRequestDTO postRequestDTO) {
-        Post post = new Post(
-                postRequestDTO.getTitle(),
-                postRequestDTO.getContents(),
-                postRequestDTO.getUrl(),
-                postRequestDTO.getThumbnail()
-        );
+        Post post = postRequestDtoToPostConverter.convert(postRequestDTO);
         postRepository.save(post);
 
         List<Tag> tags = tagService.getTagsByNames(postRequestDTO.getTags());

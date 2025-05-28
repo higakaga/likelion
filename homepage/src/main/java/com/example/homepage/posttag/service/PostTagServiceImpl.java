@@ -18,7 +18,7 @@ public class PostTagServiceImpl implements PostTagService {
     public void linkTagsToPost(Post post, List<Tag> tags) {
         for (Tag tag : tags) {
             boolean alreadyLinked = post.getPostTags().stream()
-                    .anyMatch(pt -> pt.getTagId().equals(tag.getId()));
+                    .anyMatch(pt -> pt.getTag().getId().equals(tag.getId()));
             if (!alreadyLinked) {
                 PostTag postTag = new PostTag(post, tag);
                 postTagRepository.save(postTag);

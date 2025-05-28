@@ -3,6 +3,7 @@ package com.example.homepage.post.entity;
 import com.example.homepage.posttag.entity.PostTag;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -50,6 +51,7 @@ public class Post {
         this.thumbnail = thumbnail;
     }
 
+    @Builder
     public Post(String title, String content, String url, String thumbnail) {
         this.title = title;
         this.content = content;

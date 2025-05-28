@@ -1,15 +1,22 @@
 package com.example.homepage.recruit.entity;
 
+import com.example.homepage.recruit.dto.RecruitRequestDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Getter
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Recruit {
     // 아이디
     @Id
@@ -29,4 +36,13 @@ public class Recruit {
     private LocalDate otDate;
     // 취소 여부
     private Integer isDeleted;
+
+    public void update(RecruitRequestDTO dto) {
+        this.url = dto.getUrl();
+        this.documentDate = dto.getDocumentDate();
+        this.candidateDate = dto.getCandidateDate();
+        this.interviewDate = dto.getInterviewDate();
+        this.acceptDate = dto.getAcceptDate();
+        this.otDate = dto.getOtDate();
+    }
 }

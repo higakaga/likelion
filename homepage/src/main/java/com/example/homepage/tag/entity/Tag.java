@@ -3,6 +3,7 @@ package com.example.homepage.tag.entity;
 import com.example.homepage.posttag.entity.PostTag;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -24,6 +25,7 @@ public class Tag {
     @OneToMany(mappedBy = "tag", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PostTag> postTags = new ArrayList<>();
 
+    @Builder
     public Tag(String name) {
         this.name = name;
     }
